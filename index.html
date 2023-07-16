@@ -1,36 +1,1445 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
   <head>
-    <title>Professional Blog Page</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>SOC146 - Phishing Mail Detected - Excel 4.0 Macros 0xElshazly | Mohamed Ayman Elshazly | DFIR Blog | Digital Forensics &amp; Incident Response Blog | Digital Forensics | Incident Response 0xElshazly</title>
+<meta name="description" content="SOC146 - Phishing Mail Detected - Excel 4.0 Macros ">
+
+
+  <meta name="author" content="Mohamed Ayman Elshazly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="0xElshazly">
+<meta property="og:title" content="SOC146 - Phishing Mail Detected - Excel 4.0 Macros">
+<meta property="og:url" content="https://0xelshazly.github.io/challenges/letsdefend/SOC146-Phishing/">
+
+
+  <meta property="og:description" content="SOC146 - Phishing Mail Detected - Excel 4.0 Macros ">
+
+
+
+  <meta property="og:image" content="https://0xelshazly.github.io/assets/images/LetsDefend/SOC146/SOC146.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-07-15T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://0xelshazly.github.io/challenges/letsdefend/SOC146-Phishing/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Mohamed Ayman Elshazly",
+      "url": "https://0xelshazly.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="0xElshazly Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+<!-- favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/main/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/main/favicon-16x16.png">
+<meta name="theme-color" content="#ffffff">
+
   </head>
-  <body>
-    <header>
-      <h1>Professional Blog</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/main/logo.svg" alt=""></a>
+        
+        <a class="site-title" href="/">
+          0xElshazly
+          <span class="site-subtitle">Blue Team Blog</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/#digital-forensics/">Digital Forensics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/#threat-hunting/">Threat Hunting</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/#malware-analysis/">Malware Analysis</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/#ctf-writeups">CTF Writeups</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about">$whoami</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/#tutorials">Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a href="/splash-page/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/certifications">Certifications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">Search</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/">Portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">All Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts by Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
       </nav>
-    </header>
-    <main>
-      <article>
-        <h2>Blog Post Title</h2>
-        <p class="post-meta">Posted on January 1, 2022 by John Doe</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet justo vel risus commodo auctor. Integer posuere tellus sed lorem ultrices, ut mattis nisl varius.</p>
-        <a href="#" class="read-more">Read More</a>
-      </article>
-      <article>
-        <h2>Blog Post Title</h2>
-        <p class="post-meta">Posted on January 1, 2022 by Jane Doe</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet justo vel risus commodo auctor. Integer posuere tellus sed lorem ultrices, ut mattis nisl varius.</p>
-        <a href="#" class="read-more">Read More</a>
-      </article>
-    </main>
-    <footer>
-      <p>&copy; 2023 Professional Blog. All rights reserved.</p>
-    </footer>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/LetsDefend/SOC146/SOC146.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          SOC146 - Phishing Mail Detected - Excel 4.0 Macros
+
+        
+      </h1>
+      
+        <p class="page__lead"><span style="color: #909090">Category: SOC - LetsDefend - Phishing Mail </span>
+
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/main/avatar.svg" alt="Mohamed Ayman Elshazly" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Mohamed Ayman Elshazly</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Threat Analyst - Incident Response - Digital Forensics - Malware Analysis - Blue Team</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Egypt</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://0xelshazly.github.io/0xElshazly/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-star" aria-hidden="true"></i><span class="label">CV</span></a></li>
+          
+        
+          
+            <li><a href="mailto:mo.ayman.sa2019@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/0xElshazly/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://0xelshazly.github.io/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-blogger" aria-hidden="true"></i><span class="label">Blog</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/0xElshazly" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/0xElshazly" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.buymeacoffee.com/0xelshazly" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i><span class="label">Buy Me a Coffee</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="SOC146 - Phishing Mail Detected - Excel 4.0 Macros">
+    <meta itemprop="description" content="Category: SOC - LetsDefend - Phishing Mail ">
+    <meta itemprop="datePublished" content="2023-07-15T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><span style="color: #909090">Category: SOC - LetsDefend - Phishing Mail </span></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/1.png" alt="Phishing Mail Detected" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>SOC146 - Phishing Mail Detected - Excel 4.0 Macros</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>In this writeup, we will investigate the Excel 4.0 Macros vulnerability — Phishing Mail Detected. For those who are not aware of what Excel 4.0 Macros is, this <a href="https://zvelo.com/excel-4-0-macros-another-old-school-attack-method/">link</a> provides a comprehensive overview of the vulnerability.</strong></p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/2.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Screenshot For The Alert</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Metadata information of the event which triggered the SIEM alert:</p>
+<ul>
+  <li>For this alert, we see that a suspicious behaviour that hit the <code class="language-plaintext highlighter-rouge">SOC146 - Phishing Mail Detected - Excel 4.0 Macros</code> rule, we can also see the Source Address, SMTP address, Destination Address and E-mail Subject.</li>
+</ul>
+
+<hr />
+<h2 id="lets-get-ready-to-investigate-the-alert">Let’s get ready to investigate the alert..!</h2>
+
+<ul>
+  <li>The first step is to copy the sender address and look for it in our <code class="language-plaintext highlighter-rouge">Email Security</code>. we find the copy of the email that generated the alert.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/3.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Email Security</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Lets open this mail:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/4.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>MailBox of trenton</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+  <summary>
+  ⛳Important information found in the email
+  </summary>
+  <ul>
+  <li>Subject: RE: Meeting Notes</li>
+  <li>From: trenton@tritowncomputers.com</li>
+  <li>To: lars@letsdefend.com</li>
+  <li>Attachment: 11f44531fb088d31307d87b01e8eabff.zip</li>
+  </ul>
+</details>
+
+<hr />
+
+<p>Next, we will download the attachment file in isolated environment and unzip the file, I’m using <code class="language-plaintext highlighter-rouge">ParrotOS</code></p>
+
+<p>After unzipping the attachment, we found three files:</p>
+<ul>
+  <li>iroto.dll</li>
+  <li>iroto1.dll</li>
+  <li>research-1646684671.xls</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/5.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>11f44531fb088d31307d87b01e8eabff.zip files</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By using sha256sum we will calculate the hash of each file in the attachment <code class="language-plaintext highlighter-rouge">11f44531fb088d31307d87b01e8eabff.zip</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/6.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>sha256sum</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now we can put the hashs of the files in Virus Total to get a preliminary overview of whether the file is malicious or not and to see if there are any hits returned.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - e05c717b43f7e204f315eb8c298f9715791385516335acd8f20ec9e26c3e9b0b  iroto1.dll
+  - 055b9e9af987aec9ba7adb0eef947f39b516a213d663cc52a71c7f0af146a946  iroto.dll
+  - 1df68d55968bb9d2db4d0d18155188a03a442850ff543c8595166ac6987df820  research-1646684671.xls
+</code></pre></div></div>
+
+<h3 id="iroto1dll">iroto1.dll</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/7.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em><a href="https://www.virustotal.com/gui/file/e05c717b43f7e204f315eb8c298f9715791385516335acd8f20ec9e26c3e9b0b">iroto1.dll</a> seems to be very malicious</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="irotodll">iroto.dll</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/8.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em><a href="https://www.virustotal.com/gui/file/055b9e9af987aec9ba7adb0eef947f39b516a213d663cc52a71c7f0af146a946">iroto.dll</a> seems to be very malicious</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="research-1646684671xls">research-1646684671.xls</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/9.png" alt="Screenshot For The Alert" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em><a href="https://www.virustotal.com/gui/file/1df68d55968bb9d2db4d0d18155188a03a442850ff543c8595166ac6987df820">research-1646684671.xls</a> seems to be very malicious</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>According to VT, the three files are flagged malicious:</p>
+<ul>
+  <li>The result reports 37 antivirus engines claiming the excel file has malicious.</li>
+  <li>And 19 different antivirus engines claiming the DLL is malicious.</li>
+</ul>
+
+<hr />
+<h3 id="anyrun">ANY.RUN</h3>
+
+<p>Next, we will simulate this artefact’s behaviour on compromised system by submitting it to <code class="language-plaintext highlighter-rouge">ANY.RUN</code></p>
+
+<p>💡Look at <code class="language-plaintext highlighter-rouge">ANY.RUN</code> report from <a href="https://any.run/report/1df68d55968bb9d2db4d0d18155188a03a442850ff543c8595166ac6987df820/c4210bc2-1ada-411f-a98f-040ac7f3a6f6">here</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/10.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em><a href="https://app.any.run/tasks/c4210bc2-1ada-411f-a98f-040ac7f3a6f6/">research-1646684671.xls</a> ANY.RUN Analysis</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="behavior-graph">Behavior Graph</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/11.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Behavior Graph</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The malicious use of <code class="language-plaintext highlighter-rouge">Regsvr32.exe</code> can bypass security tools that might not actively monitor the execution of the regsvr32.exe process or the modules loaded by it. This can occur due to allowlists or false positives from Windows, as regsvr32.exe is commonly used for legitimate operations.</p>
+
+<details>
+  <summary>
+  Regsvr32.exe 
+  </summary>
+  <ul>
+  <li>Regsvr32.exe is a command-line utility in the Windows operating system used for registering and unregistering Dynamic Link Libraries (DLLs) and ActiveX controls. DLLs are shared libraries that contain code and data that multiple programs can use simultaneously. ActiveX controls are software components that allow web browsers and other applications to interact with and display multimedia content.</li>
+  <li>The primary purpose of Regsvr32.exe is to register DLLs and ActiveX controls with the Windows Registry. When a DLL or ActiveX control is registered, it means that the operating system is made aware of its existence and its associated functionality. This allows applications to locate and use the registered components when needed.</li>
+  <li>It's important to note that the use of Regsvr32.exe requires administrative privileges, as modifying the Windows Registry affects the system-wide settings. Improper use or modification of registered DLLs or ActiveX controls can cause issues with applications that rely on them, so caution should be exercised when using Regsvr32.exe.</li>
+  </ul>
+</details>
+
+<hr />
+
+<h3 id="network-activity">Network Activity</h3>
+
+<h4 id="connections">Connections</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/12.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Connections</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="dns-request">DNS Request</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/13.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>DNS Request</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="http-requests">HTTP Requests</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/14.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>HTTP Requests</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The malicious excel is trying to communicate with two IPs known to be malicious. and also connected to malicious domains.</p>
+
+<h3 id="contacted-domains-3">Contacted Domains (3)</h3>
+<ul>
+  <li>nws.visionconsulting.ro</li>
+  <li>royalpalm.sparkblue.lk</li>
+  <li>ctldl.windowsupdate.com</li>
+</ul>
+
+<h3 id="contacted-ip-addresses-3">Contacted IP addresses (3)</h3>
+<ul>
+  <li>2.16.186.56:80</li>
+  <li>188.213.19.81:443</li>
+  <li>192.232.219.67:443</li>
+</ul>
+
+<h3 id="contacted-urls-1">Contacted URLs (1)</h3>
+<ul>
+  <li>http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?cb926953e41013fd</li>
+</ul>
+
+<hr />
+
+<h3 id="now-lets-looking-for-the-log-management">Now Let’s looking for the Log Management.</h3>
+
+<p>Now we will use the Log Management page and check if the C2s addresses were accessed <code class="language-plaintext highlighter-rouge">188.213.19.81</code> - <code class="language-plaintext highlighter-rouge">192.232.219.67</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/15.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>188.213.19.81 accessed</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/16.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>RAW LOG</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By clicking on the magnifying glass, we can see further details about the raw data. The malicious domain was reached by the user and the action was allowed based on the output.</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/17.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>192.232.219.67 accessed</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/18.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>RAW LOG</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="request-url">Request URL</h4>
+<ul>
+  <li>https://royalpalm.sparkblue.lk/vCNhYrq3Yg8/dot.html</li>
+  <li>https://nws.visionconsulting.ro/N1G1KCXA/dot.html</li>
+</ul>
+
+<hr />
+
+<h3 id="now-lets-looking-for-the-endpoint-security">Now Let’s looking for the Endpoint Security.</h3>
+
+<p>Go to Endpoint Security and Containment the <code class="language-plaintext highlighter-rouge">LarsPRD</code>. We can proceed to investigate further for other anomalies on LarsPRD’s workstation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/19.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Containment LarsPRD</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Looking at more details given by the Endpoint Security, we have the option to dig deeper by looking at the Processes, Network Action, Terminal History and Browse History.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/20.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Terminal History</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the Terminal History, we can see that the commands:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>regsvr32.exe <span class="nt">-s</span> ../iroto.dll
+regsvr32.exe <span class="nt">-s</span> ../iroto1.dll
+</code></pre></div></div>
+<p>was executed on the victim machine.</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/21.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Network Action</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the Network Action, we can see that the two malicious IPs were communicating with the victim machine.</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/22.png" alt="ANY.RUN" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Processes</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the Processes, we can see that the process <code class="language-plaintext highlighter-rouge">regsvr32.exe</code> was run by the parent process <code class="language-plaintext highlighter-rouge">excel.exe</code> and had a command line <code class="language-plaintext highlighter-rouge">regsvr32.exe -s iroto.dll</code>.</p>
+
+<hr />
+
+<h3 id="case-management">Case Management</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/23.png" alt="Process List" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Incident Details</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Playbook: A security playbook is a list of required steps and actions needed to successfully respond to any incident or threat. Playbooks provide a step-by-step approach to orchestration, helping security teams to establish standardized incident response processes and ensuring the steps are followed in compliance with regulatory frameworks.</p>
+</blockquote>
+
+<hr />
+
+<details>
+  <summary>
+  Parse Email
+  </summary>
+  <ul>
+    <li>When was it sent?
+        <ul>
+            <li>Jun, 13, 2021, 02:11 PM </li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>What is the email's SMTP address?
+        <ul>
+            <li>24.213.228.54 </li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>What is the sender address? 
+        <ul>
+            <li>trenton@tritowncomputers.com</li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>What is the recipient address?
+        <ul>
+            <li>lars@letsdefend.io</li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>Is the mail content suspicious?
+        <ul>
+            <li>Yes</li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>Are there any attachment?
+        <ul>
+            <li>Yes</li>
+        </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    Are there attachments or URLs in the email?
+  </summary>
+  Yes
+</details>
+
+<details>
+  <summary>
+    Analyze Url/Attachment
+  </summary>
+  Malicious
+</details>
+
+<details>
+  <summary>
+    Check If Mail Delivered to User?
+  </summary>
+  Deliverd
+</details>
+
+<details>
+  <summary>
+    Check If Someone Opened the Malicios File/URL?
+  </summary>
+  Opened
+</details>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/assets/images/LetsDefend/SOC146/24.png" alt="Process List" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Playbook Answers</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Protect Your Digital Presence &amp; Stay Cyber Safe 💙</p>
+
+<p>Thanks🌸</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#challenges" class="page__taxonomy-item" rel="tag">Challenges</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#excel" class="page__taxonomy-item" rel="tag">Excel</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#follina" class="page__taxonomy-item" rel="tag">Follina</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#letsdefend" class="page__taxonomy-item" rel="tag">LetsDefend</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#phishing" class="page__taxonomy-item" rel="tag">Phishing</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#soc" class="page__taxonomy-item" rel="tag">SOC</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#challenges" class="page__taxonomy-item" rel="tag">Challenges</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#letsdefend" class="page__taxonomy-item" rel="tag">LetsDefend</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-07-15T00:00:00+00:00">July 15, 2023</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=SOC146+-+Phishing+Mail+Detected+-+Excel+4.0+Macros%20https%3A%2F%2F0xelshazly.github.io%2Fchallenges%2Fletsdefend%2FSOC146-Phishing%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F0xelshazly.github.io%2Fchallenges%2Fletsdefend%2FSOC146-Phishing%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F0xelshazly.github.io%2Fchallenges%2Fletsdefend%2FSOC146-Phishing%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/challenges/letsdefend/SOC173-Follina/" class="pagination--pager" title="SOC173 - Follina 0-Day Detected
+">Previous</a>
+    
+    
+      <a href="/tutorials/cybertalents/CyberTalents-Certified-SOC-Analyst-2/" class="pagination--pager" title="CyberTalents Certified SOC Analyst 2023
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+<a href="/tutorials/siem/T1-Introduction-to-SIEM/" class="post-blog-card" style="text-decoration: none; 
+    --image-url: url(/assets/images/Tutorials/SIEM01/SIEM.svg);
+    --ribbon: Blue;">
+
+  <div class="post-meta">
+    <div class="post-ribbon">
+      <span class="post-ribbon4">Tutorials</span>
+    </div>
+  </div>
+
+  <div class="post-description">
+    <h1>Introduction to SIEM Solution
+</h1>
+    <p>  An introduction to Security Information and Event Management.</p>
+    
+    <p class="post-date page__meta">
+      15 Jul 2023
+    </p>
+  
+    
+      <p class="post-time page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  9 minute read
+
+</p>
+    
+
+  </div>
+</a>
+
+
+
+<!-- <div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/Tutorials/SIEM01/SIEM.svg" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/tutorials/siem/T1-Introduction-to-SIEM/" rel="permalink">Introduction to SIEM Solution
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  9 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Category: SOC - SIEM - Splunk - Qradar
+
+</p>
+    
+
+  </article>
+</div> -->
+
+        
+          
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+<a href="/tutorials/cybertalents/CyberTalents-Certified-SOC-Analyst-2/" class="post-blog-card" style="text-decoration: none; 
+    --image-url: url(/assets/images/CyberTalents/SOC_Analyst/ms-icon-1200x1200.png);
+    --ribbon: Blue;">
+
+  <div class="post-meta">
+    <div class="post-ribbon">
+      <span class="post-ribbon4">Tutorials</span>
+    </div>
+  </div>
+
+  <div class="post-description">
+    <h1>CyberTalents Certified SOC Analyst 2023
+</h1>
+    <p>  Lesson 3: Introduction to Network Security  Lesson 4: Network Security Tools</p>
+    
+    <p class="post-date page__meta">
+      15 Jul 2023
+    </p>
+  
+    
+      <p class="post-time page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+
+  </div>
+</a>
+
+
+
+<!-- <div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/CyberTalents/SOC_Analyst/ms-icon-1200x1200.png" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/tutorials/cybertalents/CyberTalents-Certified-SOC-Analyst-2/" rel="permalink">CyberTalents Certified SOC Analyst 2023
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Category: SOC - CyberTalents - Trend Micro
+
+</p>
+    
+
+  </article>
+</div> -->
+
+        
+          
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+<a href="/challenges/letsdefend/SOC173-Follina/" class="post-blog-card" style="text-decoration: none; 
+    --image-url: url(/assets/images/LetsDefend/SOC173/SOC173.svg);
+    --ribbon: Green;">
+
+  <div class="post-meta">
+    <div class="post-ribbon">
+      <span class="post-ribbon4">Challenges</span>
+    </div>
+  </div>
+
+  <div class="post-description">
+    <h1>SOC173 - Follina 0-Day Detected
+</h1>
+    <p>  SOC173 - Follina 0-Day Detected</p>
+    
+    <p class="post-date page__meta">
+      14 Jul 2023
+    </p>
+  
+    
+      <p class="post-time page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+
+  </div>
+</a>
+
+
+
+<!-- <div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/LetsDefend/SOC173/SOC173.svg" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/challenges/letsdefend/SOC173-Follina/" rel="permalink">SOC173 - Follina 0-Day Detected
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Category: SOC - LetsDefend - Follina 
+
+</p>
+    
+
+  </article>
+</div> -->
+
+        
+          
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+<a href="/red%20team/tools/tutorials/Recon-ng-Footprinting/" class="post-blog-card" style="text-decoration: none; 
+    --image-url: url(/assets/images/tools/recon-ng/recon-ng-logo.png);
+    --ribbon: DarkRed;">
+
+  <div class="post-meta">
+    <div class="post-ribbon">
+      <span class="post-ribbon4">Red Team</span>
+    </div>
+  </div>
+
+  <div class="post-description">
+    <h1>Recon-ng
+</h1>
+    <p>  Open Source Intelligence gathering tool aimed at reducing the time spent harvesting information from open sources.</p>
+    
+    <p class="post-date page__meta">
+      10 Jul 2023
+    </p>
+  
+    
+      <p class="post-time page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+
+  </div>
+</a>
+
+
+
+<!-- <div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/tools/recon-ng/recon-ng-logo.png" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/red%20team/tools/tutorials/Recon-ng-Footprinting/" rel="permalink">Recon-ng
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Category: Red Teaming - Tools - Recon-ng
+
+</p>
+    
+
+  </article>
+</div> -->
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://www.linkedin.com/in/0xElshazly/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/0xElshazly" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/0xElshazly" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://0xelshazly.github.io/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-blogger" aria-hidden="true"></i> Blog</a></li>
+        
+      
+        
+          <li><a href="https://www.buymeacoffee.com/0xelshazly" rel="nofollow noopener noreferrer"><i class="fas fa-mug-hot" aria-hidden="true"></i> Buy Me a Coffee</a></li>
+        
+      
+    
+
+    <!-- <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Mohamed Ayman Elshazly</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
   </body>
 </html>
